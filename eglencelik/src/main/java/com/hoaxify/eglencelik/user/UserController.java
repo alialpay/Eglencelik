@@ -2,6 +2,7 @@ package com.hoaxify.eglencelik.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	
 	private static final Logger Log = LoggerFactory.getLogger(UserController.class);
-	
+
+	@CrossOrigin	//CORS hatası için
 	@PostMapping("/api/1.0/users")
-	public void createUser(@RequestBody String body) {
-		Log.info(body);
+	public void createUser(@RequestBody User user) {
+		Log.info(user.toString());
 	}
 }
